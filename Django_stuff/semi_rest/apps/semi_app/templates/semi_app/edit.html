@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semi Edit</title>
+</head>
+
+<body>
+    <div id="container">
+        <form action="/update/{{user.id}}" method="post">
+            {% csrf_token %}
+            <h1>Edit User {{ user.id }}</h1>
+            <div class="form-group">
+                First name:
+                <input class="form-control" type="text" name="first_name" value="{{user.first_name}}">
+            </div>
+            <div class="form-group">
+                Last name:
+                <input class="form-control" type="text" name="last_name" value="{{user.last_name}}">
+            </div>
+            <div class="form-group">
+                Email:
+                <input class="form-control" type="text" name="email" value="{{user.email}}">
+            </div>
+            <input type="submit" value="Update">
+            <a href='/show/{{user.id}}'>Show</a>
+            <a href='/delete/{{user.id}}'>Delete</a>
+        </form>
+    </div>
+</body>
+
+</html>

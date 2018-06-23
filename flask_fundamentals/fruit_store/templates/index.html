@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/boots.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/boots.js') }}"></script>
+    <title>Fruit Store</title>
+</head>
+
+<body>
+    <div class="container" style="width: 600px; min-height: 400px; margin-top: 70px">
+        <form action="/checkout" method="POST">
+            <h2>Dojo Fruit Store!</h2>
+            <h3>What would you like to buy?</h3>
+            <table class="table table-striped">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Fruit Name</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apple</td>
+                        <td>
+                            <select name="apple">
+                                <option value='0'>0</option>
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Banana</td>
+                        <td>
+                            <select name="banana">
+                                <option value='0'>0</option>
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Orange</td>
+                        <td>
+                            <select name="orange">
+                                <option value='0'>0</option>
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Your Information</h3>
+            <div class="form-group">
+                Name:
+                <input class="form-control" type="text" name="name" value="">
+            </div>
+            <div class="form-group">
+                Student ID:
+                <input class="form-control" type="text" name="student_id" value="">
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Checkout</button>
+        </form>
+    </div>
+</body>
+
+</html>

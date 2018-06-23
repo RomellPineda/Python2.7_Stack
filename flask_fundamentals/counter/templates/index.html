@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/boots.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/boots.js') }}"></script>
+    <title>Counter</title>
+</head>
+
+<body>
+    <div class="container" style="width: 600px; height: 400px; margin-top: 150px;">
+        <h1 class="text-center">Counter</h1>
+        <p class="text-center" style="padding-bottom: 60px">{{ session["totes"] }} Time(s)</p>
+        <a href="/reset" class="btn btn-primary" style="float: right">reset</a>
+        <a href="/addtwo" class="btn btn-danger" style="float: right">add 2</a>
+    </div>
+</body>
+
+</html>

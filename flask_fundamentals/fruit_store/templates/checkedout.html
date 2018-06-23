@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/boots.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/boots.js') }}"></script>
+    <title>Fruit Store</title>
+</head>
+
+<body>
+    <div id="container" style=" width: 600px; min-height: 400px; padding: 12px; display: block; margin: 0px auto; border: 1px solid black; margin-top: 100px; border-radius: 5px;">
+        <h2>Thank you for your order!</h2>
+        <p>We ordered {{ fruit_totes }} item(s) for you and charged you student account on {{ date }}</p>
+        <h3>You've ordered</h3>
+        <table class="table table-striped">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Fruit Name</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apple</td>
+                        <td>{{ request.form['apple'] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Banana</td>
+                        <td>{{ request.form['banana'] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Orange</td>
+                        <td>{{ request.form['orange'] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        <h2>Your Information</h2>
+        <p>Name: {{ request.form['name'] }}</p>
+        <p>Your Student ID: {{ request.form['student_id'] }}</p>
+    </div>
+</body>
+
+</html>

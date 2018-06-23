@@ -1,0 +1,16 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h1 {
+    color: rgb(72, 255, 0);
+}
+#container {
+    width: 500px;
+    min-height: 400px;
+    display: block;
+    margin: 0px auto;
+    border: 1px solid black;
+    margin-top: 100px;
+    background-color: aqua;
+
+}

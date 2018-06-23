@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book and Review</title>
+</head>
+
+<body>
+    <div id="container">
+        <a href='/home'>Home</a></h1><a href='/add'>Add Book and Review</a><a href='/logout'>Logout</a>
+        <h1>User Alias: {{ request.session.user_name }}!</h1>
+        <h1>User Name: {{ request.session.user_name }}!</h1>
+        <h2>Recent Book Reviews:</h2>
+        {% for elem in books %}
+            <h3>{{ title }}</h3>
+            <h4>{{ rating }}</h4>
+            <h4>{{ review }}</h4>
+        {% endfor %}
+        <h2>Other Boods with Reviews:</h2>
+        {% for elem in books %}
+            <p>{{ title }}</p>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Welcome!</h1>
+        <div id="register">
+            <form action="/register" method="post">
+                <h3>Register</h3>
+                {% csrf_token %}
+                <div class="form-group">
+                    Name:
+                    <input class="form-control" type="text" name="name">
+                </div>
+                <div class="form-group">
+                    Alias:
+                    <input class="form-control" type="text" name="alias">
+                </div>
+                <div class="form-group">
+                    Email:
+                    <input class="form-control" type="text" name="email">
+                </div>
+                <div class="form-group">
+                    Password:
+                    <input class="form-control" type="password" name="password">
+                    <p>*Password should be at least 8 characters in length</p>
+                </div>
+                <div class="form-group">
+                    Confirm Password:
+                    <input class="form-control" type="password" name="confirm_pw">
+                </div>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+        <div id="login">
+            <form action="/login" method="post">
+                <h3>Login</h3>
+                {% csrf_token %}
+                <div class="form-group">
+                    Email:
+                    <input class="form-control" type="text" name="email">
+                </div>
+                <div class="form-group">
+                    Password:
+                    <input class="form-control" type="password" name="password">
+                </div>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

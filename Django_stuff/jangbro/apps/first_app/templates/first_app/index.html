@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_stylesheet.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/my_script.js') }}"></script>
+    <title>Jangbro</title>
+</head>
+
+<body>
+    <form action="/process" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <h2>Add a friend</h2>
+            First Name:
+            <input class="form-control" type="text" name="first_name" value="">
+        </div>
+        <div class="form-group">
+            Last Name:
+            <input class="form-control" type="text" name="last_name" value="">
+        </div>
+        <div class="form-group">
+            Bio:
+            <textarea class="form-control" name="bio"></textarea>
+        </div>
+        <input class="btn btn-primary" type="submit" value="submit" style="float: right">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            * {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            td {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='container'>
+            <table style='border-collapse: collapse'>
+                {% for i in range(0, y) %}
+                <tr class='one' style='height: 50px'>
+                    {% for j in range(0, x) %}
+                    <td class='white' style='width: 50px; background-color: white'></td>
+                    <td class='black' style='width: 50px; background-color: black'></td>
+                    {% endfor %}
+                <tr class='two' style='height: 50px'>
+                    {% for j in range(0, y) %}
+                    <td class='black' style='width: 50px; background-color: black'></td>
+                    <td class='white' style='width: 50px; background-color: white'></td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

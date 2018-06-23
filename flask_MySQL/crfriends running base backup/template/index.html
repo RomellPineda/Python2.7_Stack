@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/boots.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mystyle.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/boots.js') }}"></script>
+    <title>C + R friends</title>
+</head>
+
+<body>
+    <div id="container">
+        <h2>These are my friends</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Occupation</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>{{ users[user]['first_name'] }}</td>
+                <td>{{ users[user]['last_name'] }}</td>
+                <td>{{ users[user]['first_name'], users[user]['last_name'] }}</td>
+            </tr>
+        </table>
+        <form action="/add" method="post">
+            <div class="form-group">
+                First Name:
+                <input class="form-control" type="text" name="first_name" value="">
+            </div>
+            <div class="form-group">
+                Last Name:
+                <input class="form-control" type="text" name="last_name" value="">
+            </div>
+            <div class="form-group">
+                Occupation:
+                <input class="form-control" type="text" name="occupation" value="">
+            </div>
+    </div>
+    <input class="btn btn-primary btn-sm" type="Add" value="submit">
+    </form>
+    </div>
+</body>
+
+</html>

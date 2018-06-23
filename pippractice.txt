@@ -1,0 +1,46 @@
+/Users/romell/desktop/python_stack/myEnvironments
+Romells-MBP:myEnvironments romell$ ls
+py3Env
+Romells-MBP:myEnvironments romell$ source py3Env/bin/activate
+(py3Env) Romells-MBP:myEnvironments romell$ cd py3Env
+
+
+(py3Env) Romells-MBP:py3Env romell$ pip install Django==1.11.9
+Collecting Django==1.11.9
+  Downloading https://files.pythonhosted.org/packages/c8/a6/291039f0ce4b9818e0399359866337e6dfe9c0e23d8d94f00e657edbfcd8/Django-1.11.9-py2.py3-none-any.whl (6.9MB)
+    100% |████████████████████████████████| 7.0MB 1.2MB/s 
+Collecting pytz (from Django==1.11.9)
+  Downloading https://files.pythonhosted.org/packages/dc/83/15f7833b70d3e067ca91467ca245bae0f6fe56ddc7451aa0dc5606b120f2/pytz-2018.4-py2.py3-none-any.whl (510kB)
+    100% |████████████████████████████████| 512kB 3.3MB/s 
+Installing collected packages: pytz, Django
+Successfully installed Django-1.11.9 pytz-2018.4
+(py3Env) Romells-MBP:py3Env romell$ pip list
+Package    Version
+---------- -------
+Django     1.11.9 
+pip        10.0.1 
+pytz       2018.4 
+setuptools 39.2.0 
+wheel      0.31.1 
+(py3Env) Romells-MBP:py3Env romell$ deactivate
+Romells-MBP:py3Env romell$ pip3 list
+Package    Version
+---------- -------
+pip        10.0.1 
+setuptools 39.0.1 
+virtualenv 16.0.0 
+wheel      0.31.0 
+Romells-MBP:py3Env romell$ 
+
+// With virtualenv deactivated the pip list was shorter possibly because python version compatiblity 'construct' was not running.  Strangely enough, Django 1.11.9 was not listed in pip when virtualenv was deactivated
+
+Romells-MBP:myEnvironments romell$ source py3Env/bin/activate
+(py3Env) Romells-MBP:myEnvironments romell$ pip install Django==1.11.9
+Requirement already satisfied: Django==1.11.9 in ./py3Env/lib/python3.6/site-packages (1.11.9)
+Requirement already satisfied: pytz in ./py3Env/lib/python3.6/site-packages (from Django==1.11.9) (2018.4)
+
+// Difference between pip list and pip freeze: pip list displays installed packages and pip freeze displays installed packages in requirements format.  What is requirements format?
+
+(py3Env) Romells-MBP:desktop romell$ pip freeze > requirements.txt
+// Created txt file called requirements on desktop with pip freeze output
+

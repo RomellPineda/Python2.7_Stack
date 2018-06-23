@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap_stylesheet.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap_script.js') }}"></script>
+		<title>Survey Information</title>
+	</head>
+	<body>
+        <div id="container" style=" width: 600px; height: 400px; padding: 12px; display: block; margin: 0px auto; border: 1px solid black; margin-top: 100px; border-radius: 5px;">
+            <h2>Submitted Information</h2>
+            <p>Name: {{ request.form['name'] }}</p>
+            <p>Dojo Location: {{ request.form['location'] }}</p>
+            <p>Favorite Language: {{ request.form['language'] }}!!</p>
+            <p>Additional Comments: {{ request.form['comment'] }}</p>
+            <a type="button" class="btn btn-danger" href="/" style="float: right">Go Back</a>
+            <a type="button" class="btn btn-secondary" href="/danger" style="float: right">You're Not Ready</a>
+        </div>
+	</body>
+</html>

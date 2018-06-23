@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rando Word</title>
+</head>
+
+<body>
+    <div id="container">
+        {% csrf_token %}
+        <h1>Random Word (attempt # {{request.session.count}})</h1>
+        <h1>{{ request.session.wurd }}</h1>
+        <a href="/generate" class="btn btn-primary">Generate</a>
+    </div>
+    <!-- <input class="btn btn-primary" type="SubmIt" value="submit" style="float: right"> -->
+
+</body>
+
+</html>
