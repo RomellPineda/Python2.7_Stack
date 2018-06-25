@@ -56,10 +56,12 @@ def login(request):
         return redirect('/')
 
 def home(request):
-    context = {
-
+    wusgood = {
+        'latest' : Book.objects.order_by('updated_at')[:3],
+        'other' : Book.objects.order_by('updated_at')[3:],
     }
-    return render(request, 'rev_app/home.html', context)
+    print('home triggered')
+    return render(request, 'rev_app/home.html', wusgood)
 
 def add(request):
     return render(request, 'rev_app/add.html')
@@ -71,15 +73,9 @@ def newbook(request):
     return redirect('/book_info')
 
 def info(request):
-    context = {
-
-    }
-    return render(request, 'rev_app/book_info')
+    return render(request, 'rev_app/book_info.html')
 
 def review(request):
-    context = {
-
-    }
     return render(request, 'rev_app/review.html')
 
 def logout(request):

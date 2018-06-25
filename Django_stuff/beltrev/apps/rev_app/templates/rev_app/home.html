@@ -13,18 +13,19 @@
     <div id="container">
         <h1>Welcome, {{ request.session.user_name }}!</h1><a href='/add'>Add Book and Review</a><a href='/logout'>Logout</a>
         <h2>Recent Book Reviews:</h2>
-        {% for index in range.2 %}
-        {% for elem in books %}
-            <h3>{{ elem.title }}</h3>
-            <h4>{{ elem.rating }}</h4>
-            <h4>{{ elem.review }}</h4>
+        {% for elem in latest %}
+            <p>{{ elem.title }}</p>
+            {% for tomatometer in latest %}
+                <h5 class="star" style="display: inline">*</h5>
+            {% endfor %}
+            {% if elem.rating > 0 %}
+                <h5 class="star" style="display: inline">stars</h5>
+            {% endif %}
+            <p>{{ elem.uploader.alias }} says {{ elem.review }}</p>
         {% endfor %}
-        {% endfor %}
-        <h2>Other Boods with Reviews:</h2>
-        {% for index in range.3.7 %}
-        {% for elem in books %}
-            <h3>{{ elem.title }}</h3>
-        {% endfor %}
+        <h2>Other Books with Reviews:</h2>
+        {% for libro in other %}
+            <p>{{ libro.title }}</p>
         {% endfor %}
     </div>
 </body>
