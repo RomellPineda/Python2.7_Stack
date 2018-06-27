@@ -56,12 +56,12 @@ def login(request):
         return redirect('/')
 
 def home(request):
-    wusgood = {
+    context = {
         'latest' : Book.objects.order_by('updated_at')[:3],
         'other' : Book.objects.order_by('updated_at')[3:],
     }
     print('home triggered')
-    return render(request, 'rev_app/home.html', wusgood)
+    return render(request, 'rev_app/home.html', context)
 
 def add(request):
     return render(request, 'rev_app/add.html')
@@ -70,13 +70,32 @@ def newbook(request):
     if request.method != 'POST':
         return redirect('/')
     print(request.POST)
-    return redirect('/book_info')
+    error = False
+    if len(request.POST['title']) < 2:
+        print('Title must be 2 or more characters')
+        error = True
+    if len(request.POST['author']) < 2:
+        print('Author must be 2 or more characters')
+        error = True
+    if error:
+        return redirect('/add')
+    nb = Book.objects.create(title = request.POST['title'], author = request.POST['author'], review = request.POST['review'], rating = request.POST['rating'], uploader_id = request.session['user_id'])
+    request.session['book_id'] = nb.id
+    # x = int(request.session['book_id'])
+    return redirect('/book_info/1')
 
-def info(request):
-    return render(request, 'rev_app/book_info.html')
+def info(request, number):
+    context = {
+        'new' : Book.objects.get(id=number)
+    }
+    return render(request, 'rev_app/book_info.html', context)
 
-def review(request):
-    return render(request, 'rev_app/review.html')
+def review(request, number):
+    context = {
+        'user' : User.objects.get(id = number),
+        'book' : Book.objects.filter(reviewer = User.objects.get(id = number))
+        }
+    return render(request, 'rev_app/review.html', context)
 
 def logout(request):
     request.session.clear()

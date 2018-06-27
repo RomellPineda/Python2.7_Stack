@@ -2,9 +2,12 @@
 <html lang="en">
 
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'semi_app/css/boots.css' %}">
+    <link rel="stylesheet" href="{% static 'semi_app/css/mycss.css' %}">
     <title>Semi Restful</title>
 </head>
 
@@ -17,7 +20,7 @@
                 <thead>
                     <tr>
                         <th>id</th>
-                        <a href='/show/{{users.id}}'>{{ first_name }} {{ last_name }}</a>
+                        <th>Full Name</th>
                         <th>Email</th>
                         <th>Created At</th>
                         <th>Actions</th>
@@ -27,7 +30,7 @@
                     {% for elem in users %}
                     <tr>
                         <td>{{ elem.id }}</td>
-                        <td>{{ elem.first_name }} {{ elem.last_name }}</td>
+                        <td><a href='/show/{{elem.id}}'>{{ elem.first_name }} {{ elem.last_name }}</a></td>
                         <td>{{ elem.email }}</td>
                         <td>{{ elem.created_at }}</td>
                         <td>
@@ -39,7 +42,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <input type="submit" value="Add a new user">
+            <input class="btn btn-primary" type="submit" value="Add a new user">
         </form>
     </div>
 </body>

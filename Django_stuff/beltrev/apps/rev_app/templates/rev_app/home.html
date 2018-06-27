@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'rev_app/css/boots.css' %}">
+    <link rel="stylesheet" href="{% static 'rev_app/css/mycss.css' %}">
     <title>Home</title>
 </head>
 
@@ -14,18 +16,19 @@
         <h1>Welcome, {{ request.session.user_name }}!</h1><a href='/add'>Add Book and Review</a><a href='/logout'>Logout</a>
         <h2>Recent Book Reviews:</h2>
         {% for elem in latest %}
-            <p>{{ elem.title }}</p>
-            {% for tomatometer in latest %}
-                <h5 class="star" style="display: inline">*</h5>
-            {% endfor %}
-            {% if elem.rating > 0 %}
+            <p><a href="/book_info/{{elem.id}}">{{ elem.title }}</a></p>
+            <p>Rating: {{ elem.rating }}/5 Stars</p>
+            <!-- {% for tomatometer in latest %}
+                <h5 class="star">*</h5>
+            {% endfor %} -->
+            <!-- {% if elem.rating > 0 %}
                 <h5 class="star" style="display: inline">stars</h5>
-            {% endif %}
+            {% endif %} -->
             <p>{{ elem.uploader.alias }} says {{ elem.review }}</p>
         {% endfor %}
         <h2>Other Books with Reviews:</h2>
         {% for libro in other %}
-            <p>{{ libro.title }}</p>
+            <p><a href="/book_info/{{libro.id}}">{{ libro.title }}</a></p>
         {% endfor %}
     </div>
 </body>
