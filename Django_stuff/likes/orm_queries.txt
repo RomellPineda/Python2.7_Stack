@@ -1,0 +1,74 @@
+# Liked Books
+
+Create 3 different user accounts
+>>> User.objects.create(first_name = 'alvin', last_name = 'one', email = 'one@aol.com')
+<User: first_name: alvin last_name: one email: one@aol.com>
+>>> User.objects.create(first_name = 'simon', last_name = 'two', email = 'two@aol.com')
+<User: first_name: simon last_name: two email: two@aol.com>
+>>> User.objects.create(first_name = 'theodore', last_name = 'three', email = 'three@aol.com')
+<User: first_name: theodore last_name: three email: three@aol.com>
+
+>>> User.objects.all()
+<QuerySet [<User: first_name: alvin last_name: one email: one@aol.com>, <User: first_name: simon last_name: two email: two@aol.com>, <User: first_name: theodore last_name: three email: three@aol.com>]>
+
+Have the first user create/upload 2 books.
+>>> Book.objects.create(name='of mice and men', uploader=User.objects.get(id=1))
+<Book: name: of mice and men description: >
+>>> Book.objects.create(name='to kill a mockingbird', uploader=User.objects.get(id=1))
+<Book: name: to kill a mockingbird description: >
+>>> User.objects.get(id=1).my_stuff.all()
+<QuerySet [<Book: name: of mice and men description: >, <Book: name: to kill a mockingbird description: >]>
+
+Have the second user create/upload 2 other books.
+>>> Book.objects.create(name='harry potter1', uploader=User.objects.get(id=2))
+<Book: name: harry potter1 description: >
+>>> Book.objects.create(name='harry potter2', uploader=User.objects.get(id=2))
+<Book: name: harry potter2 description: >
+
+Have the third user create/upload 2 other books.
+>>> Book.objects.create(name='hunger games', uploader=User.objects.get(id=3))
+<Book: name: hunger games description: >
+>>> Book.objects.create(name='hunger games2', uploader=User.objects.get(id=3))
+<Book: name: hunger games2 description: >
+
+>>> u1=User.objects.get(id=1)
+>>> u2=User.objects.get(id=2)
+>>> u3=User.objects.get(id=3)
+>>> b1=Book.objects.get(id=8)
+>>> b2=Book.objects.get(id=9)
+>>> b3=Book.objects.get(id=10)
+>>> b4=Book.objects.get(id=11)
+>>> b5=Book.objects.get(id=12)
+>>> b6=Book.objects.get(id=13)
+
+Have the first user like the last book and the first book
+>>> u1.books.add(b1)
+>>> u1.books.add(b6)
+
+Checked
+>>> b1.liked_by.all()
+<QuerySet [<User: first_name: alvin last_name: one email: one@aol.com>]>
+
+Have the second user like the first book and the third book
+>>> u2.books.add(b1)
+>>> u2.books.add(b3)
+
+Have the third user like all books
+>>> u3.books.add(b1)
+>>> u3.books.add(b2)
+>>> u3.books.add(b3)
+>>> u3.books.add(b4)
+>>> u3.books.add(b5)
+>>> u3.books.add(b6)
+
+Display all users who like the first book
+>>> b1.liked_by.all()
+
+Display the user who uploaded the first book
+>>> Book.objects.get(id=8).uploader
+
+Display all users who like the second book
+>>> b2.liked_by.all()
+
+Display the user who uploaded the second book
+>>> b2.uploader

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	{% load static %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'handy_app/css/boots.css' %}">
+	<link rel="stylesheet" href="{% static 'handy_app/css/mycss.css' %}">
+	<title>Pay with Card</title>
+</head>
+
+<body>
+	<div id="container">
+		<form action="your-server-side-code" method="POST">
+			{% csrf_token %}
+			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_g6do5S237ekq10r65BnxO6S0" data-amount="999"
+			 data-name="Stripe.com" data-description="Widget" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+			 data-locale="auto" data-zip-code="true">
+			</script>
+		</form>
+	</div>
+</body>
+
+</html>
