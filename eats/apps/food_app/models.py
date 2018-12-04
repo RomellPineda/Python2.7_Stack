@@ -7,6 +7,7 @@ class User(models.Model):
     admin = models.BooleanField(default=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    food_allergy = models.CharField(max_length=255, blank=True, null=True)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
     address = models.CharField(max_length=255)

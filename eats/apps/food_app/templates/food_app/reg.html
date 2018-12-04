@@ -16,7 +16,7 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <a href="#top" class="brand-logo"><i class="material-icons">local_dining</i></a>
+                <a href="/" class="brand-logo"><i class="material-icons">local_dining</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="onthemenu.html">On the Menu</a></li>
                     <li><a href="howitworks.html">How it Works</a></li>
@@ -37,8 +37,9 @@
             </ul>
             {% endif %}
             <div class="row">
-                <form class="col s12" action="" method="post">
+                <form class="col s12" action="/signup" method="post">
                     {% csrf_token %}
+                    <h3 class="center-align">Register</h3>
                     <div class="row">
                         <div class="input-field col s6">
                             <input id="first_name" type="text" name="first_name">
@@ -47,6 +48,12 @@
                         <div class="input-field col s6">
                             <input id="last_name" type="text" name="last_name">
                             <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="food_allergy" type="text" name="food_allergy">
+                            <label for="food_allergy">Food Allergies</label>
                         </div>
                     </div>
                     <div class="row">
@@ -68,8 +75,7 @@
                         </div>
                     </div>
 
-                    <h1>Shipping Address</h1>
-
+                    <h3 class="center-align">Shipping Address</h3>
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="address" type="text" name="address">
