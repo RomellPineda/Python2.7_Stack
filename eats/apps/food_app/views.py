@@ -11,6 +11,9 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 def index(request):
     return render(request, 'food_app/index.html')
 
+def menu(request):
+    return render(request, 'food_app/menu.html')
+
 def auth(request):
     return render(request, 'food_app/reg.html')
 

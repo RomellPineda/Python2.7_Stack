@@ -8,11 +8,11 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'food_app/css/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'food_app/css/mystyle.css' %}" />
+    <link rel="stylesheet" href="{% static 'food_app/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'food_app/css/mystyle.css' %}">
 </head>
 
-<body id="top">
+<body>
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
@@ -28,9 +28,14 @@
     </div>
 
     <header>
-        <video class="responsive-video" autoplay loop>
+        <video class="responsive-video" autoplay muted loop>
             <source src="{% static 'food_app/media/souup.mp4' type='video/mp4' %}">
+            <source src="{% static 'food_app/media/pan.mp4' type='video/mp4' %}">
+            Your browser does not support the video tag
         </video>
+        <div class="opener">
+            <h2>Opening Statement</h2>
+        </div>
     </header>
 
     <main>

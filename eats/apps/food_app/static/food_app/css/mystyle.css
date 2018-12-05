@@ -11,3 +11,7 @@ main {
 .messages li {
     color: rgb(255, 0, 0);
 }
+
+h2 {
+    color: rgb(230, 15, 201);
+}
