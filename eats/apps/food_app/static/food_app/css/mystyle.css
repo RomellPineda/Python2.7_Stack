@@ -12,6 +12,22 @@ main {
     color: rgb(255, 0, 0);
 }
 
+#hero {
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#opener {
+    background: rgba(0,0,0,0);
+    position: absolute;
+    display: block;
+    align-items: center;
+}
+
 h2 {
-    color: rgb(230, 15, 201);
+    color: rgb(243, 215, 239);
+    text-align: center;
 }

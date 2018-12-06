@@ -8,26 +8,42 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'food_app/css/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'food_app/css/mystyle.css' %}" />
+    <link rel="stylesheet" href="{% static 'food_app/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'food_app/css/mystyle.css' %}">
 </head>
 
-<body id="top">
+<body>
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
                 <a href="#top" class="brand-logo"><i class="material-icons">local_dining</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="onthemenu.html">On the Menu</a></li>
-                    <li><a href="howitworks.html">How it Works</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
+                    <li><a href="/menu">ON THE MENU</a></li>
+                    <li><a href="/how">HOW IT WORKS</a></li>
+                    <li><a href="/login">LOG IN</a></li>
+                    <li><a href="/register" class="waves-effect waves-light btn">SIGN UP</a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    
-    <header></header>
-    <main></main>
+
+    <header>
+        <video class="responsive-video" autoplay muted loop>
+            <source src="{% static 'food_app/media/souup.mp4' type='video/mp4' %}">
+            <source src="{% static 'food_app/media/pan.mp4' type='video/mp4' %}">
+            Your browser does not support the video tag
+        </video>
+        <div class="opener">
+            <h2>Opening Statement</h2>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="col m6"></div>
+            <div class="col m6"></div>
+        </div>
+    </main>
 
     <footer class="page-footer">
         <div class="container">
@@ -54,6 +70,10 @@
             </div>
         </div>
     </footer>
+
+    <script src="../../static/food_app/js/jquery.min.js"></script>
+    <script src="../../static/food_app/js/materialize.min.js"></script>
+    <script src="../../static/food_app/js/script.js"></script>
 </body>
 
 </html>

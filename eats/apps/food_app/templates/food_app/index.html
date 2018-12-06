@@ -28,13 +28,17 @@
     </div>
 
     <header>
-        <video class="responsive-video" autoplay muted loop>
-            <source src="{% static 'food_app/media/souup.mp4' type='video/mp4' %}">
-            <source src="{% static 'food_app/media/pan.mp4' type='video/mp4' %}">
-            Your browser does not support the video tag
-        </video>
-        <div class="opener">
-            <h2>Opening Statement</h2>
+        <div id="hero">
+            <video class="responsive-video" autoplay muted loop>
+                <source src="{% static 'food_app/media/souup.mp4' type='video/mp4' %}">
+                <source src="{% static 'food_app/media/pan.mp4' type='video/mp4' %}">
+                Your browser does not support the video tag
+            </video>
+            <div id="opener">
+                <h2>Oder our top rated</h2>
+                <h2>recipes today</h2>
+                <a href="/register" class="waves-effect waves-light btn">Get Started</a>
+            </div>
         </div>
     </header>
 
