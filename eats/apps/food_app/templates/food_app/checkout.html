@@ -27,7 +27,20 @@
     </div>
     
     <header></header>
-    <main></main>
+    <main>
+        <form action="your-server-side-code" method="POST">
+            <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="pk_test_JuCYsFjwuSXuoNKnpAvsFisn"
+              data-amount="999"
+              data-name="foody"
+              data-description="Example charge"
+              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+              data-locale="auto"
+              data-zip-code="true">
+            </script>
+          </form>
+    </main>
 
     <footer class="page-footer">
         <div class="container">
@@ -54,6 +67,11 @@
             </div>
         </div>
     </footer>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="../../static/food_app/js/jquery.min.js"></script>
+    <script src="../../static/food_app/js/materialize.min.js"></script>
+    <script src="../../static/food_app/js/script.js"></script>
 </body>
 
 </html>

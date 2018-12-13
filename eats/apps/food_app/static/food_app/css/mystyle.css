@@ -27,7 +27,12 @@ main {
     align-items: center;
 }
 
-h2 {
-    color: rgb(243, 215, 239);
+#opener h2 {
+    color: white;
+    font-family: 'Homemade Apple', cursive;
     text-align: center;
+}
+
+#jump {
+    display: block;
 }

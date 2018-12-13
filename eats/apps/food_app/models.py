@@ -31,7 +31,7 @@ class Product(models.Model):
     quantity = models.IntegerField()
     description = models.TextField()
     purchaser = models.ManyToManyField(User, related_name = 'products')
-    charge = models.ForeignKey(Price, related_name ='cost')
+    charge = models.ForeignKey(Price, related_name ='product_cost')
 
 
     created_at = models.DateTimeField(auto_now_add=True)

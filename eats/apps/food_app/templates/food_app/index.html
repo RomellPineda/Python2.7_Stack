@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'food_app/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'food_app/css/mystyle.css' %}">
@@ -37,11 +38,12 @@
             <div id="opener">
                 <h2>Oder our top rated</h2>
                 <h2>recipes today</h2>
-                <a href="/register" class="waves-effect waves-light btn">Get Started</a>
+                <a href="/register" class="waves-effect waves-light btn" id="jump">Get Started</a>
             </div>
         </div>
     </header>
 
+    <!-- Why -->
     <main>
         <div class="container">
             <div class="col m6"></div>
@@ -75,6 +77,7 @@
         </div>
     </footer>
 
+    <script src="https://js.stripe.com/v3/"></script>
     <script src="../../static/food_app/js/jquery.min.js"></script>
     <script src="../../static/food_app/js/materialize.min.js"></script>
     <script src="../../static/food_app/js/script.js"></script>
