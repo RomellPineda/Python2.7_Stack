@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from .models import Album
+from .models import *
 
 class AlbumTest(TestCase):
 
@@ -14,8 +14,6 @@ class AlbumTest(TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertEqual(c.get('/create').status_code, 302)
         self.assertEqual(c.get('/read').status_code, 200)
-        self.assertEqual(c.get('/update').status_code, 302)
-        self.assertEqual(c.get('/delete').status_code, 302)
 
     def test_model_creation(self):
         a = Album.objects.create(title = 'License to Ill', artist = 'Beastie Boys', year = 1986)
@@ -69,12 +67,25 @@ class AlbumTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_view_update(self):
+        ## For this one, we have given you a good jumping off point, but it's still
+        ## up to you to create the url and the view function to make this test pass
         c = Client()
-        a = Album.objects.first()
-        edits = {}
-        res = c.post('/update', edits)
-        self.assertEqual(res.status_code, 302)
+        post_data = {
+            "title": "A Test Edit",
+            "artist" : "Test Artist Edit",
+            "year": 3099
+        }
+        # This should edit the single album that is created by our setUp method
+        response = c.post('/update/1', post_data)
+        # Let's make sure the view function eventually redirects
+        self.assertEqual(response.status_code, 302)
+        # Let's test to make sure the edit worked
+        edited = Album.objects.get(id = 1)
+        self.assertEqual(edited.title, post_data['title'])
+        self.assertEqual(edited.artist, post_data['artist'])
+        self.assertEqual(edited.year, post_data['year'])
 
     def test_view_delete(self):
-        num_deleted = Album.objects.get(id = 1).delete()[0]
-        self.assertEqual(num_deleted, 1)
+        c = Client()
+        res = c.post('/delete/1')
+        self.assertEqual(res.status_code, 302)

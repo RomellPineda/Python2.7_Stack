@@ -15,10 +15,18 @@ def read(request):
     }
     return render(request, 'index.html', context)
 
-def update(request):
-    return redirect('/')
+def update(request, id):
+    album = Album.objects.get(id = id)
+    album.title = request.POST['title']
+    album.artist = request.POST['artist']
+    album.year = request.POST['year']
+    album.save()
+    context = {
+        'album' : Album.objects.get(id = id)
+    }
+    return redirect('/', context)
 
-def delete(request):
-    da = Album.objects.get(id = 1)
+def delete(request, id):
+    da = Album.objects.get(id = id)
     da.delete()
     return redirect('/')
