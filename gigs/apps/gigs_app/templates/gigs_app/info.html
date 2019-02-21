@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'gigs_app/css/boots.css' %}">
+    <link rel="stylesheet" href="{% static 'gigs_app/css/mycss.css' %}">
+    <title>View Job</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="options">
+            <a href='/home'>Back</a> |
+            <a href='/logout'>Logout</a>
+        </div>
+        <h1>{{ info.title }}</h1>
+        <div class='box'>
+            <p>{{ info.desc }}</p>
+            <p>Location: {{ info.location }}</p>
+            <!-- run logic in views??? -->
+            <p>Posted by: {{ user.first_name }} {{ user.last_name }}</p>
+            <!-- convert date w/ strftime??? -->
+            <p>Posted on: {{ date }}</p>
+        </div>
+        <a class="btn btn-primary" href='/add/{{info.id}}'>Add To My Jobs</a>
+    </div>
+</body>
+
+</html>
