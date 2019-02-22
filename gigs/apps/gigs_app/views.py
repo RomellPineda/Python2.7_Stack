@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from datetime import datetime
 from .models import *
-import bcrypt
+# import bcrypt
 # import re
 # EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 # Create your views here.
@@ -14,7 +14,7 @@ def register(request):
     if request.method != 'POST':
         return redirect('/')
 
-    User.objects.validate_register(request.POST)
+    errors = User.objects.validate_register(request.POST)
 
     # error = False
     # if len(request.POST['first_name']) < 2:
@@ -35,13 +35,16 @@ def register(request):
     # if request.POST['password'] != request.POST['confirm_pw']:
     #     messages.error(request,'Password and confirm password must match')
     #     error = True
-    if error:
+    # 
+    if len(errors):
+        for error in errors:
+            messages.error(request, error)
         return redirect('/')
     else:
-        hashed = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
-        user = User.objects.create(first_name = request.POST['first_name'], last_name = request.POST['last_name'], email = request.POST['email'], password = hashed)
-        request.session['user_id'] = user.id
-        request.session['user_name'] = user.first_name
+        # hashed = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
+        # user = User.objects.create(first_name = request.POST['first_name'], last_name = request.POST['last_name'], email = request.POST['email'], password = hashed)
+        # request.session['user_id'] = user.id
+        # request.session['user_name'] = user.first_name
         print(user.id)
         print(user.first_name)
     return redirect('/home')
