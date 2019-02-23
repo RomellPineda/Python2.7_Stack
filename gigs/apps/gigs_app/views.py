@@ -14,7 +14,7 @@ def register(request):
     if request.method != 'POST':
         return redirect('/')
 
-    errors = User.objects.validate_register(request.POST)
+    result = User.objects.validate_register(request.POST)
 
     # error = False
     # if len(request.POST['first_name']) < 2:
@@ -36,18 +36,27 @@ def register(request):
     #     messages.error(request,'Password and confirm password must match')
     #     error = True
     # 
-    if len(errors):
-        for error in errors:
-            messages.error(request, error)
-        return redirect('/')
-    else:
+    # if len(errors):
+    #     for error in errors:
+    #         messages.error(request, error)
+    #     return redirect('/')
+    # else:
         # hashed = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
         # user = User.objects.create(first_name = request.POST['first_name'], last_name = request.POST['last_name'], email = request.POST['email'], password = hashed)
         # request.session['user_id'] = user.id
         # request.session['user_name'] = user.first_name
-        print(user.id)
-        print(user.first_name)
-    return redirect('/home')
+    #     print(user.id)
+    #     print(user.first_name)
+    # return redirect('/home')
+
+    if 'success' in result:
+        request.session[user_id] = result['success'].id
+        return redirect('/home')
+    else:
+        for key, values in result.items():
+            messages.error(request, value)
+        return redirect('/')
+
 
 def login(request):
     if request.method != 'POST':
