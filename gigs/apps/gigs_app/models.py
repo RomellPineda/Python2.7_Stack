@@ -28,6 +28,17 @@ class UserManager(models.Manager):
     result['success'] = user
     return result
 
+    def login(self, postData):
+        a_user = User.objects.filter(email =  postData['email'])
+        if len(a_user) > 0:
+            user = a_user[0]
+            if bcrypt.checkpw(postData['passoword'].encode(), user.password.encode()):
+                return {'success' : user}
+            else:
+                return {}
+        else:
+            return {}
+
 class User(models.Model):
     first_name = models.CharField(max_length = 100)
     last_name = models.CharField(max_length = 100)

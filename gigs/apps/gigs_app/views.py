@@ -61,16 +61,24 @@ def register(request):
 def login(request):
     if request.method != 'POST':
         return redirect('/')
-    user = User.objects.filter(email = request.POST['email'])
-    if len(user) > 0:
-        shmuser = user[0]
-        if bcrypt.checkpw(request.POST['password'].encode(), shmuser.password.encode()):
-            request.session['user_id'] = shmuser.id
-            request.session['user_name'] = shmuser.first_name
-            return redirect('/home')
-        else:
-            messages.error(request, 'Email or password invalid' )
-            return redirect('/')
+    # user = User.objects.filter(email = request.POST['email'])
+    # if len(user) > 0:
+    #     shmuser = user[0]
+    #     if bcrypt.checkpw(request.POST['password'].encode(), shmuser.password.encode()):
+    #         request.session['user_id'] = shmuser.id
+    #         request.session['user_name'] = shmuser.first_name
+    #         return redirect('/home')
+    #     else:
+    #         messages.error(request, 'Email or password invalid' )
+    #         return redirect('/')
+    # else:
+    #     messages.error(request, 'Email or password invalid')
+    #     return redirect('/')
+
+    result = User.objects.login(request.POST)
+    if 'success' in result:
+        request.session['user_id'] = result['success'].id
+        return redirect('/home')
     else:
         messages.error(request, 'Email or password invalid')
         return redirect('/')
